@@ -221,6 +221,8 @@ static void setCompileArguments(std::vector<const char*>* args, const android::S
                                 bool useRSDebugContext, const char* bccPluginName) {
     rsAssert(cacheDir && resName && core_lib);
     args->push_back(BCC_EXE_PATH);
+    args->push_back("-unroll-runtime");
+    args->push_back("-scalarize-load-store");
     args->push_back("-o");
     args->push_back(resName);
     args->push_back("-output_path");
