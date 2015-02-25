@@ -789,6 +789,9 @@ void rsdAllocationIoReceive(const Context *rsc, Allocation *alloc) {
         drv->surfaceTexture->updateTexImage();
     }
 #endif
+    if (alloc->mHal.state.yuv) {
+        DeriveYUVLayout(alloc->mHal.state.yuv, &alloc->mHal.drvState);
+    }
 }
 
 
